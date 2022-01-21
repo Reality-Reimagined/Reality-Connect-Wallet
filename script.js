@@ -45,14 +45,15 @@ function renderApp() {
 
 async function authenticate() {
   
-  // let web3;
-  // if (provider == 'walletconnect') {
-  //         const user = await Moralis.authenticate({ provider: provider});
-  //         web3 = await Moralis.enable({ provider });
-  // } else {
-  //         const user = await Moralis.authenticate();
-  //         web3 = await Moralis.enable();
-  // }
+  let web3;
+  if (provider == 'walletconnect') {
+          const user = await Moralis.authenticate({ provider: provider});
+          web3 = await Moralis.enable({ provider });
+  } else {
+          const user = await Moralis.authenticate();
+          web3 = await Moralis.enable();
+  }
+  //if doesnt work try commenting try command
   try {
     user = await Moralis.authenticate({ provider });
     web3 = await Moralis.enableWeb3({ provider });
